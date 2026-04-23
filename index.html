@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -295,7 +294,6 @@
 
   /* hide dividers between naturally contrasting sections */
   .section-alt + .divider,
-  .divider + .section-alt,
   .writing-section + .divider { display: none; }
 
   /* ── ABOUT ── */
@@ -807,7 +805,7 @@
 <section id="contact" class="contact-section fade-in">
   <p class="section-label" data-es="Contacto" data-en="Contact">Contact</p>
   <h2 class="section-title" style="margin:0 auto 3rem;" data-es="¿Tienes un proyecto en mente?" data-en="Have a project in mind?">Have a project in mind?</h2>
-  <a href="/cdn-cgi/l/email-protection#94fdfaf2fbd4fefbe6f3f1e7fbe0fbbaf1e7" class="contact-email"><span class="__cf_email__" data-cfemail="a6cfc8c0c9e6ccc9d4c1c3d5c9d2c988c3d5">[email&#160;protected]</span></a>
+  <a href="/cdn-cgi/l/email-protection#aec7c0c8c1eec4c1dcc9cbddc1dac180cbdd" class="contact-email"><span class="__cf_email__" data-cfemail="157c7b737a557f7a677270667a617a3b7066">[email&#160;protected]</span></a>
   <ul class="social-links">
     <li><a href="https://es.linkedin.com/in/jorge-soto-ux" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://twitter.com/_JorgeSoto_" target="_blank" rel="noopener">X / Twitter</a></li>
@@ -1046,7 +1044,11 @@
   // ── Scroll to section ──
   function scrollToSection(id) {
     const el = document.getElementById(id);
-    if (el) { el.classList.add('visible'); el.scrollIntoView({ behavior: 'smooth' }); }
+    if (!el) return;
+    el.classList.add('visible');
+    const navH = document.getElementById('nav').offsetHeight;
+    const top = el.getBoundingClientRect().top + window.scrollY - navH - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 
   document.querySelectorAll('.nav-link[data-target]').forEach(btn => {
